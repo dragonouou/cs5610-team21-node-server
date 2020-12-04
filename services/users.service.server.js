@@ -1,4 +1,4 @@
-let users = require('./users.json')
+// let users = require('./users.json')
 const usersDao = require('../daos/users.dao.server')
 
 const findAllUsers = () => usersDao.findAllUsers()
