@@ -17,6 +17,10 @@ const usersSchema = mongoose.Schema({
     favorites: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "RecipeModel"
+    }],
+    recipes: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "RecipeModel"
     }]
 }, {collection: "users"})
 
