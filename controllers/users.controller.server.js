@@ -1,6 +1,11 @@
 const usersService = require('../services/users.service.server')
 
 module.exports = (app) => {
+
+    const findAllUsers = (req, res) =>
+        usersService.findAllUsers()
+            .then(users => res.json(users))
+
     const findUserById = (req, res) =>
         usersService.findUserById(req.params.uid)
             .then(user => res.json(user))
@@ -14,6 +19,7 @@ module.exports = (app) => {
             .then(status => res.send(status))
 
     app.get('/api/users/:uid', findUserById)
+    app.get('/api/users', findAllUsers)
     app.post('/api/users', createUser)
     app.put('/api/users/:uid', updateUser)
 }
