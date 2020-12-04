@@ -21,3 +21,5 @@ app.listen(3000);
 //         'GET,POST,PUT,PATCH,DELETE,OPTIONS');
 //     next();
 // })
+
+require("./controllers/users.controller.server")(app)
