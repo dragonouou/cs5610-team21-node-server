@@ -1,5 +1,14 @@
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
+
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/kitchen',
+    {useNewUrlParser: true});
+
+const bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.json())
+
 app.get('/hello', function(req, res){
     res.send('hello world'); });
 app.listen(3000);

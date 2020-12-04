@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -17,9 +18,12 @@
   },
   "homepage": "https://github.com/Cxynthia/cs5610-team21-node-server#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "interweave": "^12.6.0",
+    "mongoose": "^5.11.3",
     "react": "^17.0.1",
     "react-router-dom": "^5.2.0"
-  }
+  },
+  "devDependencies": {}
 }
