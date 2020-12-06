@@ -1,0 +1,25 @@
+const recipeModel = require('../models/recipes/recipes.models.server')
+
+const findAllRecipes = () =>
+    recipeModel.find()
+
+const findRecipeById = (recipeId) =>
+    recipeModel.findById(recipeId)
+
+const findRecipesForUser = (userId) =>
+    recipeModel.find({chefId:userId})
+
+const updateRecipe = (recipeId, newRecipe) =>
+    recipeModel.update({_id:recipeId},{$set:newRecipe})
+
+const createRecipe = (newRecipe) =>
+    recipeModel.create(newRecipe)
+
+module.exports = {
+    findAllRecipes,
+    findRecipeById,
+    findRecipesForUser,
+    updateRecipe,
+    createRecipe
+}
+
