@@ -15,10 +15,14 @@ const updateRecipe = (recipeId, newRecipe) =>
 const createRecipe = (newRecipe) =>
     recipeDao.createRecipe(newRecipe)
 
+const findRecipesByTitle = (title) =>
+    recipeDao.findRecipesByTitle(title)
+
 module.exports = {
     findAllRecipes,
     findRecipeById,
     findRecipesForUser,
     updateRecipe,
-    createRecipe
+    createRecipe,
+    findRecipesByTitle
 }
