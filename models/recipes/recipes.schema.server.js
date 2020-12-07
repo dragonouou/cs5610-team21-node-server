@@ -8,5 +8,3 @@ const recipeSchema = mongoose.Schema({
 }, {collection:'recipes'})
 
 module.exports = recipeSchema
-
-

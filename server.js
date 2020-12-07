@@ -11,6 +11,13 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
+const session = require('express-session')
+app.use(session({
+    resave: false,
+    saveUninitialized: true,
+    secret: 'any string'
+}));
+
 
 app.use(function (req,res,next) {
     res.header('Access-Control-Allow-Origin',"*");
@@ -23,5 +30,6 @@ app.use(function (req,res,next) {
 
 require("./controllers/recipes.controllers.server")(app)
 require("./controllers/orders.controllers.server")(app)
+// require("./controllers/express.session")(app)
 
 app.listen(3000);
