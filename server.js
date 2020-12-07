@@ -13,12 +13,12 @@ app.get('/hello', function(req, res){
     res.send('hello world'); });
 
 
-const session = require('express-session')
-app.use(session({
-    resave: false,
-    saveUninitialized: true,
-    secret: 'any string'
-}));
+// const session = require('express-session')
+// app.use(session({
+//     resave: false,
+//     saveUninitialized: true,
+//     secret: 'any string'
+// }));
 
 
 app.use(function (req,res,next) {
@@ -34,5 +34,5 @@ require("./controllers/recipes.controllers.server")(app)
 require("./controllers/orders.controllers.server")(app)
 // require("./controllers/express.session")(app)
 require("./controllers/users.controller.server")(app)
-app.listen(3000);
+app.listen(8080);
 

@@ -8,7 +8,7 @@
 //
 //     const getSessionAttribute = (req, res) => {
 //         const attr = req.params['attr']
-//         const value = req.session['attr']
+//         const value = req.session[attr]
 //         res.send(value)
 //     }
 //
@@ -17,18 +17,22 @@
 //         res.send(200)
 //     }
 //
+//     let users = []
 //     const register = (req, res) => {
+//         //post, req.body
 //         const username = req.params["username"]
 //         const password = req.params["password"]
-//         const user = {username, password}
-//         users.push(user)
-//         req.session['profile'] = user
+//         const newUser = {username, password}
+//         users.push(newUser)
+//         req.session['profile'] = newUser
 //         res.send(user)
 //     }
 //
 //     const login = (req, res) => {
+//         //req.body
 //         const username = req.params["username"]
 //         const password = req.params["password"]
+//         //findUserByCredentials
 //         const user = users.find(u => u.username === username && u.password === password)
 //         if (user) {
 //             req.session['profile']= user
@@ -47,10 +51,10 @@
 //     }
 //
 //     app.get("/api/session/set/:attr/:value", setSessionAttribute)
-//     app.get("/api/session/get/:attr/:value", getSessionAttribute)
+//     app.get("/api/session/get/:attr", getSessionAttribute)
 //     app.get("/api/session/kill", invalidateSession)
-//     app.get("/api/register", register)
-//     app.get("/api/login", login)
-//     app.get("/api/profile", profile)
-//     app.get("/api/logout", logout)
+//     app.post("/api/register", register)
+//     app.post("/api/login", login)
+//     app.post("/api/profile", profile)
+//     app.post("/api/logout", logout)
 // }
