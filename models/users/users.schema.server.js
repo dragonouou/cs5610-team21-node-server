@@ -21,6 +21,10 @@ const usersSchema = mongoose.Schema({
     recipes: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "RecipeModel"
+    }],
+    orders: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "OrderModel"
     }]
 }, {collection: "users"})
 
