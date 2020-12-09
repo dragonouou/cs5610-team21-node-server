@@ -22,7 +22,7 @@
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "interweave": "^12.6.0",
-    "mongoose": "^5.11.3",
+    "mongoose": "^5.11.5",
     "react": "^17.0.1",
     "react-router-dom": "^5.2.0"
   },

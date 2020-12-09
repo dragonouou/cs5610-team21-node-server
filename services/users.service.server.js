@@ -3,9 +3,11 @@ const usersDao = require('../daos/users.dao.server')
 
 const findAllUsers = () => usersDao.findAllUsers()
 
+const findAllUsersDetails = () => usersDao.findAllUsersDetails()
+
 const findUserById = (userId) => usersDao.findUserById(userId)
 
-const findUserByIdDetails = (userId) => usersDao.findUserById(userId)
+const findUserByIdDetails = (userId) => usersDao.findUserByIdDetails(userId)
 
 const createUser = (newUser) => usersDao.createUser(newUser)
 
@@ -16,5 +18,6 @@ module.exports = {
     createUser,
     updateUser,
     findAllUsers,
-    findUserByIdDetails
+    findUserByIdDetails,
+    findAllUsersDetails
 }

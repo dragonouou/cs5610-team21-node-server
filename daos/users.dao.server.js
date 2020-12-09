@@ -2,9 +2,13 @@ const usersModel = require('../models/users/users.models.server')
 
 const findAllUsers = () => usersModel.find()
 
+const findAllUsersDetails = () => usersModel.find().populate("favorites").exec()
+
 const findUserById = (uid) => usersModel.findById(uid)
 
-const findUserByIdDetails = (uid) => usersModel.findById(uid).populate('orders', 'favorites').exec()
+const findUserByIdDetails = (uid) => usersModel.findById(uid)
+    .populate("favorites")
+    .populate({path: "orders", populate: {path: "recipes"}}).exec()
 
 const createUser = (newUser) => usersModel.create(newUser)
 
@@ -15,5 +19,6 @@ module.exports = {
     createUser,
     updateUser,
     findAllUsers,
-    findUserByIdDetails
+    findUserByIdDetails,
+    findAllUsersDetails
 }
