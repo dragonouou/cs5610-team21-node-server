@@ -1,4 +1,5 @@
 const recipeService = require("../services/recipes.service.server")
+const url = require('url')
 
 module.exports = (app) => {
     const findAllRecipes = (req, res) => {
@@ -29,8 +30,15 @@ module.exports = (app) => {
             .then(actualRecipe => res.send(actualRecipe))
     }
 
+    const findRecipesByTitle = (req, res) => {
+        const searchCriteria =  req.query.criteria
+        recipeService.findRecipesByTitle(searchCriteria)
+            .then(recipes => res.send(recipes))
+    }
+
     app.get('/api/recipes',findAllRecipes)
     app.get('/api/users/:userId/recipes', findRecipesForUser)
+    app.get('/api/recipes/search',findRecipesByTitle)
     app.get('/api/recipes/:recipeId',findRecipeById)
     app.put('/api/recipes/:recipeId', updateRecipe)
     app.post('/api/recipes',createRecipe)

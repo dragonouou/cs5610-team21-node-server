@@ -6,5 +6,6 @@ const recipeSchema = mongoose.Schema({
     review:[String],
     chefId:String
 }, {collection:'recipes'})
+recipeSchema.index({title:'text'})
 
 module.exports = recipeSchema

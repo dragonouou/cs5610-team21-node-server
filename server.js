@@ -20,9 +20,9 @@ app.use(session({
     secret: 'any string'
 }));
 
-
 app.use(function (req,res,next) {
-    res.header('Access-Control-Allow-Origin',"*");
+    res.header('Access-Control-Allow-Origin',"http://localhost:3001");
+    res.header('Access-Control-Allow-Credentials','true')
     res.header('Access-Control-Allow-Headers',
         'Content-Type, X-Requested_With, Origin');
     res.header('Access-Control-Allow-Methods',
@@ -32,7 +32,8 @@ app.use(function (req,res,next) {
 
 require("./controllers/recipes.controllers.server")(app)
 require("./controllers/orders.controllers.server")(app)
-// require("./controllers/express.session")(app)
+require("./controllers/express.session")(app)
 require("./controllers/users.controller.server")(app)
+
 app.listen(8080);
 
