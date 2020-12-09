@@ -18,9 +18,9 @@ module.exports = (app) => {
         usersService.findUserByIdDetails(req.params.uid)
             .then(user => res.json(user))
 
-    const createUser = (req, res) =>
-        usersService.createUser(req.body)
-            .then(actualUser => res.send(actualUser))
+    // const createUser = (req, res) =>
+    //     usersService.createUser(req.body)
+    //         .then(actualUser => res.send(actualUser))
 
     const updateUser = (req, res) =>
         usersService.updateUser(req.params.uid, req.body)
@@ -32,6 +32,6 @@ module.exports = (app) => {
     app.get('/api/users', findAllUsers)
     app.get('/api/users-details', findAllUsersDetails)
 
-    app.post('/api/users', createUser)
+    // app.post('/api/users', createUser)
     app.put('/api/users/:uid', updateUser)
 }
