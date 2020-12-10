@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/kitchen',
+mongoose.connect('mongodb+srv://cs5610:cs5610@homekitchen.cu5xu.mongodb.net/homekitchen?retryWrites=true&w=majority',
     {useNewUrlParser: true});
 
 const bodyParser = require('body-parser')
@@ -35,5 +35,5 @@ require("./controllers/orders.controllers.server")(app)
 require("./controllers/express.session")(app)
 require("./controllers/users.controller.server")(app)
 
-app.listen(8080);
+app.listen(process.env.PORT || 8080);
 
