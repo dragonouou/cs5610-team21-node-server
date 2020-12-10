@@ -21,12 +21,15 @@ app.use(session({
 }));
 
 app.use(function (req,res,next) {
-    // const allowedOrigins = ['http://localhost:3000/','https://homekitchen.herokuapp.com/','http://localhost:3001/'];
-    // const origin = req.headers.origin;
+    const allowedOrigins = ['http://localhost:3000','https://homekitchen.herokuapp.com','http://localhost:3001'];
+    const origin = req.headers.origin;
+    let theOrigin = (allowedOrigins.indexOf(origin) >= 0) ? origin : allowedOrigins[0];
     // if (allowedOrigins.includes(origin)){
     //     res.setHeader('Access-Control-Allow-Origin',origin);
     // }
-    res.header('Access-Control-Allow-Origin',"http://localhost:3000/");
+    res.header('Access-Control-Allow-Origin',theOrigin);
+
+    // res.header('Access-Control-Allow-Origin',"http://localhost:3000/");
     res.header('Access-Control-Allow-Credentials','true')
     res.header('Access-Control-Allow-Headers',
         'Content-Type, X-Requested_With, Origin');
