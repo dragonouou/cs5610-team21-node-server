@@ -40,5 +40,5 @@ require("./controllers/orders.controllers.server")(app)
 require("./controllers/express.session")(app)
 require("./controllers/users.controller.server")(app)
 
-// app.listen(process.env.PORT || 8080);
+app.listen(process.env.PORT || 8080);
 
