@@ -43,16 +43,18 @@ module.exports = (app) => {
         //findUserByCredentials
         const user = users.find(u => u.username === username && u.password === password)
         if (user) {
-            req.session['profile']= user
+            req.session['profile'] = user
             res.send(user)
         } else {
             res.send(403)
         }
     }
+
     const profile = (req, res) => {
         const user = req.session['profile']
         res.send(user)
     }
+
     const logout = (req, res) => {
         req.session.destroy()
         res.send(200)
