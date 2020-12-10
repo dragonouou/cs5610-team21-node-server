@@ -27,13 +27,6 @@ module.exports = (app) => {
                 req.session['profile'] = actualUser
                 res.send(actualUser)
             })
-        //post, req.body
-        // const username = req.params["username"]
-        // const password = req.params["password"]
-        // const newUser = {username, password}
-        // users.push(newUser)
-        // req.session['profile'] = newUser
-        // res.send(user)
     }
 
     const login = (req, res) => {
@@ -49,22 +42,15 @@ module.exports = (app) => {
                     res.send(403)
                 }
             })
-
-        // const username = req.params["username"]
-        // const password = req.params["password"]
-        // //findUserByCredentials
-        // const user = users.find(u => u.username === username && u.password === password)
-        // if (user) {
-        //     req.session['profile']= user
-        //     res.send(user)
-        // } else {
-        //     res.send(403)
-        // }
     }
 
     const profile = (req, res) => {
         const user = req.session['profile']
-        res.send(user)
+        if (user){
+            res.send(user)
+        } else {
+            res.send("not found")
+        }
     }
 
     const logout = (req, res) => {
