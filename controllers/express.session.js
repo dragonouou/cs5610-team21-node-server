@@ -49,7 +49,7 @@ module.exports = (app) => {
         if (user){
             res.send(user)
         } else {
-            res.send("not found")
+            res.send(403)
         }
     }
 
