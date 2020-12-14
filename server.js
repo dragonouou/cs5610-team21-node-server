@@ -9,15 +9,16 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
-app.get('/hello', function(req, res){
-    res.send('hello world'); });
-
+// app.get('/hello', function(req, res){
+//     res.send('hello world'); });
+// const isDevMode = process.env.NODE_ENV === 'development'
 
 const session = require('express-session')
 app.use(session({
     resave: false,
     saveUninitialized: true,
     secret: 'any string',
+    //comment below cookie when used in local
     proxy: true,
     cookie:{
         secure:true,
