@@ -1,23 +1,23 @@
 const usersService = require('../services/users.service.server')
 
 module.exports = (app) => {
-    // const setSessionAttribute = (req, res) => {
-    //     const attr = req.params['attr']
-    //     const value = req.params['value']
-    //     req.session[attr] = value
-    //     res.send(value)
-    // }
-    //
-    // const getSessionAttribute = (req, res) => {
-    //     const attr = req.params['attr']
-    //     const value = req.session[attr]
-    //     res.send(value)
-    // }
-    //
-    // const invalidateSession = (req, res) => {
-    //     req.session.destroy()
-    //     res.send(200)
-    // }
+    const setSessionAttribute = (req, res) => {
+        const attr = req.params['attr']
+        const value = req.params['value']
+        req.session[attr] = value
+        res.send(value)
+    }
+
+    const getSessionAttribute = (req, res) => {
+        const attr = req.params['attr']
+        const value = req.session[attr]
+        res.send(value)
+    }
+
+    const invalidateSession = (req, res) => {
+        req.session.destroy()
+        res.sendStatus(200)
+    }
 
     //createUser
     const register = (req, res) => {
@@ -58,9 +58,9 @@ module.exports = (app) => {
         res.sendStatus(200)
     }
 
-    // app.get("/api/session/set/:attr/:value", setSessionAttribute)
-    // app.get("/api/session/get/:attr", getSessionAttribute)
-    // app.get("/api/session/kill", invalidateSession)
+    app.get("/api/session/set/:attr/:value", setSessionAttribute)
+    app.get("/api/session/get/:attr", getSessionAttribute)
+    app.get("/api/session/kill", invalidateSession)
     app.post("/api/users", register)
     app.post("/api/login", login)
     app.post("/api/profile", profile)
