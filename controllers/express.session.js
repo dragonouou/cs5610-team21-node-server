@@ -39,7 +39,7 @@ module.exports = (app) => {
                     req.session['profile'] = currentUser
                     res.send(currentUser)
                 } else {
-                    res.send(403)
+                    res.sendStatus(403)
                 }
             })
     }
@@ -55,7 +55,7 @@ module.exports = (app) => {
 
     const logout = (req, res) => {
         req.session.destroy()
-        res.send(200)
+        res.sendStatus(200)
     }
 
     // app.get("/api/session/set/:attr/:value", setSessionAttribute)
