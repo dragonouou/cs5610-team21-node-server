@@ -18,6 +18,7 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
     secret: 'any string',
+    proxy: true,
     cookie:{
         secure:true,
         maxAge: 6000000,
