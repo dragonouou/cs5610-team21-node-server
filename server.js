@@ -17,7 +17,11 @@ const session = require('express-session')
 app.use(session({
     resave: false,
     saveUninitialized: true,
-    secret: 'any string'
+    secret: 'any string',
+    cookie:{
+        secure:true,
+        sameSite:'none',
+    }
 }));
 
 app.use(function (req,res,next) {
