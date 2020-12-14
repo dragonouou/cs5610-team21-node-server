@@ -20,6 +20,7 @@ app.use(session({
     secret: 'any string',
     cookie:{
         secure:true,
+        maxAge: 60000,
         sameSite:'none',
     }
 }));
