@@ -18,11 +18,15 @@ const createRecipe = (newRecipe) =>
 const findRecipesByTitle = (title) =>
     recipeDao.findRecipesByTitle(title)
 
+const deleteRecipe = (recipeId) =>
+    recipeDao.deleteRecipe(recipeId)
+
 module.exports = {
     findAllRecipes,
     findRecipeById,
     findRecipesForUser,
     updateRecipe,
     createRecipe,
-    findRecipesByTitle
+    findRecipesByTitle,
+    deleteRecipe
 }

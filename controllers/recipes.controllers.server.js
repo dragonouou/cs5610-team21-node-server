@@ -36,11 +36,18 @@ module.exports = (app) => {
             .then(recipes => res.send(recipes))
     }
 
+    const deleteRecipe = (req, res) => {
+        const recipeId = req.params.recipeId
+        recipeService.deleteRecipe(recipeId)
+            .then(status => res.send(status))
+    }
+
     app.get('/api/recipes',findAllRecipes)
     app.get('/api/users/:userId/recipes', findRecipesForUser)
     app.get('/api/recipes/search',findRecipesByTitle)
     app.get('/api/recipes/:recipeId',findRecipeById)
     app.put('/api/recipes/:recipeId', updateRecipe)
     app.post('/api/recipes',createRecipe)
+    app.delete('/api/recipes/:recipeId',deleteRecipe)
 }
 

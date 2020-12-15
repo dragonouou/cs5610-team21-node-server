@@ -18,12 +18,16 @@ const createRecipe = (newRecipe) =>
 const findRecipesByTitle = (title) =>
     recipeModel.find({$text:{$search:title}})
 
+const deleteRecipe = (recipeId) =>
+    recipeModel.remove({_id:recipeId})
+
 module.exports = {
     findAllRecipes,
     findRecipeById,
     findRecipesForUser,
     updateRecipe,
     createRecipe,
-    findRecipesByTitle
+    findRecipesByTitle,
+    deleteRecipe
 }
 

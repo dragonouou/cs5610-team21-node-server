@@ -18,6 +18,7 @@ const updateUser = (uid, newUser) => usersModel.update({_id: uid}, {$set: newUse
 const findUserByCredentials = (email, password) =>
     usersModel.find({email:email, password: password})
 
+
 module.exports = {
     findUserById,
     createUser,

@@ -26,6 +26,7 @@ module.exports = (app) => {
         usersService.updateUser(req.params.uid, req.body)
             .then(newUser => res.send(newUser))
 
+
     app.get('/api/users/:uid', findUserById)
     app.get('/api/users/:uid/details', findUserByIdDetails)
 
