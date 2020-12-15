@@ -35,11 +35,21 @@ module.exports = (app) => {
         usersService.findUserByCredentials(email,password)
             .then(status => {
                 const currentUser = status
-                if (currentUser) {
-                    req.session['profile'] = currentUser
-                    res.send(currentUser)
+                if (status.length < 1 || status == undefined) {
+                    res.json({
+                        success:false,
+                        msg:"user not found"
+                    })
+                    return;
                 } else {
-                    res.sendStatus(403)
+                    req.session['profile'] = currentUser
+                    res.json({
+                        success:true,
+                        userId:currentUser._id,
+                        userInfo:currentUser,
+                        msg:"user login success"
+                    })
+                    return;
                 }
             })
     }
