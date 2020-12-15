@@ -19,13 +19,13 @@ app.use(session({
     saveUninitialized: true,
     secret: 'any string',
     // //comment below cookie when used in local
-    // proxy: true,
-    // cookie:{
-    //     secure:true,
-    //     maxAge: 6000000,
-    //     sameSite:'none',
-    //     httpOnly:false
-    // }
+    proxy: true,
+    cookie:{
+        secure:true,
+        maxAge: 6000000,
+        sameSite:'none',
+        httpOnly:false
+    }
 }));
 
 app.use(function (req,res,next) {
