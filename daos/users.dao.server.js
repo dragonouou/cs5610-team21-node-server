@@ -9,7 +9,7 @@ const findUserById = (uid) => usersModel.findById(uid)
 const findUserByIdDetails = (uid) => usersModel.findById(uid)
     .populate("favorites")
     .populate("following")
-    .populate({path: "cart", populate: {path: "chefId"}})
+    .populate("cart")
     .populate({path: "orders", populate: {path: "recipes"}}).exec()
 
 const createUser = (newUser) => usersModel.create(newUser)

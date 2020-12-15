@@ -11,8 +11,14 @@ module.exports = (app) => {
             .then(actualOrder => res.send(actualOrder))
     }
 
+    const deleteOrder = (req, res) => {
+        orderService.deleteOrder(req.params.orderId)
+            .then(status => res.send(status))
+    }
+
     app.get("/api/orders",findAllOrders)
     app.post("/api/orders",createOrder)
+    app.delete("/api/orders/:orderId",deleteOrder)
 }
 
 
