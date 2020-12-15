@@ -21,6 +21,10 @@ const usersSchema = mongoose.Schema({
     orders: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "OrderModel"
+    }],
+    cart: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "RecipeModel"
     }]
 }, {collection: "users"})
 
