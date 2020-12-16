@@ -18,16 +18,6 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
     secret: 'any string',
-<<<<<<< HEAD
-    //comment below cookie when used in local
-    // proxy: true,
-    // cookie:{
-    //     secure:true,
-    //     maxAge: 6000000,
-    //     sameSite:'none',
-    //     httpOnly:false
-    // }
-=======
     // //comment below cookie when used in local
     proxy: true,
     cookie:{
@@ -36,7 +26,6 @@ app.use(session({
         sameSite:'none',
         httpOnly:false
     }
->>>>>>> daa68dcbc7b96d1de6b7504d1038c5b8b9a53bda
 }));
 
 app.use(function (req,res,next) {
